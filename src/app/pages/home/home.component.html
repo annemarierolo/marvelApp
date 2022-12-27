@@ -1,0 +1,8 @@
+<div class="row">
+    <div class="col" *ngIf="heroes.length > 0">
+        <app-slider [heroes]="heroesSlider"></app-slider>
+    </div>
+</div>
+
+<h1 class="mt-5">Heroes</h1>
+<app-heroes-poster-grid [heroes]="heroes"></app-heroes-poster-grid>
