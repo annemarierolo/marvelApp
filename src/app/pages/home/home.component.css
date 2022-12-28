@@ -1,0 +1,17 @@
+.add-button{
+    position:fixed;
+	width:200px;
+	height:60px;
+	bottom:20px;
+	right:-65px;
+}
+
+.add-team{
+    background-color: #0C0D0D;
+	font-weight: 700;
+	color: white;
+}
+
+.add-team:hover {
+	background-color: red;
+}

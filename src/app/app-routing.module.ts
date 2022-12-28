@@ -4,9 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { HeroComponent } from './pages/hero/hero.component';
 import { SearchComponent } from './pages/search/search.component';
+import { TeamComponent } from './pages/team/team.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'hero/:id', component: HeroComponent },
+  { path: 'search/:text', component: SearchComponent },
   { path: '**', pathMatch: 'full', redirectTo: '/home' }
 ];
 

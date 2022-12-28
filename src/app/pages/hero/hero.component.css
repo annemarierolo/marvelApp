@@ -1,0 +1,12 @@
+.img-thumbnail{
+    height: 500px;
+}
+
+.container{
+    margin-top: 50px;
+}
+
+.btn{
+    width: 100%;
+    font-weight: 700;
+}

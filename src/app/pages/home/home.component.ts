@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { HeroesService } from '../../services/heroes.service';
 
 @Component({
@@ -18,24 +19,28 @@ export class HomeComponent implements OnInit, OnDestroy{
 
     if(position > max){
       if(this.heroesService.loading) { return; }
-      this.heroesService.getBillboard().subscribe(heroes => {
+      this.heroesService.getCharacters().subscribe(heroes => {
         this.heroes.push(...heroes);
       })
     }
     
   }
 
-  constructor(private heroesService: HeroesService) { }
+  constructor(private heroesService: HeroesService, private router: Router) { }
 
   ngOnInit(): void {
-    this.heroesService.getBillboard().subscribe( heroes => {
+    this.heroesService.getCharacters().subscribe( heroes => {
       this.heroes = heroes;
       this.heroesSlider = heroes;
     });
   }
 
   ngOnDestroy(){
-    this.heroesService.resetBillboardPage();
+    this.heroesService.resetCharactersPage();
+  }
+
+  onTeamClick(){
+    this.router.navigate(['/team'])
   }
 
 }

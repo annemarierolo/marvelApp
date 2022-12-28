@@ -23,10 +23,10 @@ export class HeroesService {
     }
   }
 
-  resetBillboardPage(){
+  resetCharactersPage(){
     this.marvelPage = 0;
   }
-  getBillboard(): Observable<any[]> {
+  getCharacters(): Observable<any[]> {
 
     if ( this.loading ){
       return of([]);
@@ -45,13 +45,13 @@ export class HeroesService {
     );
   }
 
-  searchHeros( text: string ):Observable<any[]>{
+  searchHeroes( text: string ):Observable<any[]>{
 
-    const params = {...this.params, page:'1', query: text};
-    return this.http.get<any>(`${this.baseUrl}/search/hero`, {
+    const params = {...this.params};
+    return this.http.get<any>(`${this.baseUrl}/characters?name=${text}`, {
       params
     }).pipe(
-      map( (resp: any) => resp.results)
+      map( (resp: any) => resp.data.results)
     );
   }
 
