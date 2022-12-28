@@ -16,8 +16,11 @@ export class TeamComponent implements OnInit {
 
   public isActive: boolean = true;
   public isSearch: boolean = true;
+  public modalButton: string = 'Agregar';
   public warningMsg: string = '';
+  public teams: any[] = []
   public team: ITeam = {
+    id: '',
     name: '',
     description: '',
     heroes: [] 
@@ -25,9 +28,18 @@ export class TeamComponent implements OnInit {
 
   constructor(private heroesService: HeroesService, private teamsService: TeamsService) { }
 
-    public ngOnInit() {}
+    public ngOnInit() {
+      this.getTeams();
+    }
 
-  open() {
+  open(reset?: boolean) {
+    if (reset)
+      this.team = {
+        id: '',
+        name: '',
+        description: '',
+        heroes: [] 
+      }
     this.isActive = false;
     const modal = document.getElementById('myModal');
     if (modal) {
@@ -72,13 +84,36 @@ export class TeamComponent implements OnInit {
     this.warningMsg = text;
   }
 
-  saveTeam(){
-    console.log(this.team);
+  modifyTeam(team: any) {
+    this.modalButton = 'Editar';
+    this.team = team;
+    this.open();
   }
 
-  // onAddTeam(){
-  //   this.teamsService.createTeam()
-  // }
+  requestTeam() {
+    if(this.modalButton != 'Agregar')
+      this.editTeam(this.team)
+    else 
+      this.addTeam()
 
+    this.close();
+  }
+
+  addTeam(){
+    this.teamsService.createTeam(this.team).then(() => this.getTeams()); 
+  }
+
+  editTeam(team: any) {
+    this.teamsService.editTeam(team);
+  }
+
+  deleteTeam(team: any) {
+    this.teamsService.deleteTeam(team).then(() => this.getTeams()); 
+  }
+
+  getTeams(){
+    this.teamsService.getTeams().then(teams  => {this.teams = teams; console.log(teams);
+    });    
+  }
 
 }

@@ -3,30 +3,23 @@
 <table class="table">
   <thead class="table-header">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Miembros</th>
+      <th scope="col">Acción</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
+    <tr *ngFor="let team of teams">
+      <th scope="row">{{ team.name }}</th>
+      <td>{{ team.description }}</td>
+      <td>
+        <p style="display: inline;" *ngFor="let hero of team.heroes; let i = index">{{ hero.name }}{{ (i+1 == team.heroes.length) ? '.' : ',' }} </p>
+      </td>
+      <td>
+        <button (click)="modifyTeam(team)">Editar</button>
+        <button (click)="deleteTeam(team)">Eliminar</button>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -34,7 +27,7 @@
 <div class="container">
   <div class="row" *ngIf="isActive">
     <div class="col add-button">
-      <button type="button" class="btn add-hero" (click)="open()">
+      <button type="button" class="btn add-hero" (click)="modalButton = 'Agregar'; open(true)">
         Agregar Equipo
       </button>
     </div>
@@ -110,8 +103,8 @@
           >
             Cancelar
           </button>
-          <button (click)="saveTeam()" class="btn add-hero">
-            Agregar Equipo
+          <button (click)="requestTeam()" class="btn add-hero">
+            {{ modalButton }} Equipo
           </button>
         </div>
       </div>
