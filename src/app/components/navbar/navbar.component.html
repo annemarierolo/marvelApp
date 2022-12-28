@@ -28,14 +28,14 @@
       <div class="d-flex">
         <input
           #txtSearch
-          (keyup.enter)="searchHero(txtSearch.value)"
+          (keyup.enter)="searchHero(txtSearch.value); txtSearch.value = ''"
           class="form-control me-2"
           type="search"
           placeholder="Buscar heroe"
           aria-label="Search"
         />
         <button
-          (click)="searchHero(txtSearch.value)"
+          (click)="searchHero(txtSearch.value); txtSearch.value = ''"
           class="btn btn-outline-danger searchButton"
           type="submit"
         >
