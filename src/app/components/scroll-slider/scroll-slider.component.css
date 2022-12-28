@@ -1,0 +1,31 @@
+.text-black {
+  font-size: small;
+}
+
+.swiper-slide {
+  width: 150px !important;
+  margin-right: 15px !important;
+  position: relative;
+  display: inline-block;
+}
+
+.swiper-slide .title-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.swiper-slide:hover .title-text {
+  visibility: visible;
+}

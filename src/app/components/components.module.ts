@@ -9,14 +9,21 @@ import { ScrollSliderComponent } from './scroll-slider/scroll-slider.component';
 
 @NgModule({
   declarations: [
-    NavbarComponent, 
+    NavbarComponent,
+    SliderComponent,
+    HeroesPosterGridComponent,
+    ScrollSliderComponent    
   ],
   imports: [
     CommonModule,
     RouterModule,
+    RatingModule  
   ],
   exports: [
     NavbarComponent,
+    SliderComponent,
+    HeroesPosterGridComponent,
+    ScrollSliderComponent    
 
   ]
 })

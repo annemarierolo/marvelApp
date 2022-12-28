@@ -1,0 +1,8 @@
+<div class="row">
+    <div class="col-md-3 animate__animated animate__fadeIn" *ngFor="let hero of heroes">
+        <img class="img-fluid poster" src="{{ hero.thumbnail.path + '.' + hero.thumbnail.extension }}" (click)="onHeroClick(hero)">
+        <div>
+            <h3 class="mt-3">{{hero.name}}</h3>
+        </div>
+    </div>
+</div>

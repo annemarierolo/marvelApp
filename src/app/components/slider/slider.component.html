@@ -1,0 +1,17 @@
+<div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide" *ngFor="let hero of heroes" [ngStyle]="{'background-repeat': 'no-repeat', 'background-size': '600px 480px','background-image':'url(' + hero.thumbnail.path + '.' + hero.thumbnail.extension + ')'}">
+            <div class="hero-description">
+                <h3 class="hero-name">{{hero.name}}</h3>
+            </div>
+        </div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div (click)="onSlidePrev()" class="swiper-button-prev"></div>
+    <div (click)="onSlideNext()" class="swiper-button-next"></div>
+</div>
