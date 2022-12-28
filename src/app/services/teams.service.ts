@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {collection, doc, setDoc, updateDoc, getDocs, deleteDoc} from 'firebase/firestore/lite';
 import { FirebaseDB } from '../../firebase/config';

@@ -17,8 +17,8 @@
         <p style="display: inline;" *ngFor="let hero of team.heroes; let i = index">{{ hero.name }}{{ (i+1 == team.heroes.length) ? '.' : ',' }} </p>
       </td>
       <td>
-        <button (click)="modifyTeam(team)">Editar</button>
-        <button (click)="deleteTeam(team)">Eliminar</button>
+        <button type="button" class="btn btn-success edit-button" (click)="modifyTeam(team)">Editar</button>
+        <button type="button" class="btn btn-danger delete-button" (click)="deleteTeam(team)">Eliminar</button>
       </td>
     </tr>
   </tbody>
