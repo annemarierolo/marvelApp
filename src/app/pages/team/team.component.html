@@ -1,0 +1,120 @@
+<h1 class="mb-5">Equipos</h1>
+
+<table class="table">
+  <thead class="table-header">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="container">
+  <div class="row" *ngIf="isActive">
+    <div class="col add-button">
+      <button type="button" class="btn add-hero" (click)="open()">
+        Agregar Equipo
+      </button>
+    </div>
+  </div>
+
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Nuevo Equipo</h4>
+          <button type="button" class="close" (click)="close()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="team-name" class="col-form-label"
+              >Nombre del Equipo</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="team-name"
+              [(ngModel)]="team.name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="description-text" class="col-form-label"
+              >Descripción</label
+            >
+            <textarea
+              class="form-control"
+              id="description-text"
+              [(ngModel)]="team.description"
+            ></textarea>
+          </div>
+
+          <div class="row" *ngIf="isSearch">
+            <div class="col" *ngFor="let hero of team.heroes">
+              <img
+                class="hero-team"
+                src="{{ hero.thumbnail.path + '.' + hero.thumbnail.extension }}"
+                [alt]="hero.name"
+                (click)="removeHero(hero)"
+              />
+              <p>{{ hero.name }}</p>
+            </div>
+          </div>
+
+          <div class="d-flex mt-3">
+            <input
+              #txtSearch
+              (keyup.enter)="addHero(txtSearch.value); txtSearch.value = ''"
+              class="form-control me-2"
+              type="search"
+              placeholder="Buscar heroe"
+              aria-label="Search"
+            />
+            <button
+              (click)="addHero(txtSearch.value); txtSearch.value = ''"
+              class="btn btn-outline-danger search-button"
+              type="button"
+            >
+              Agregar
+            </button>
+          </div>
+          <p class="warning-msg" *ngIf="warningMsg">{{ warningMsg }}</p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            (click)="close()"
+          >
+            Cancelar
+          </button>
+          <button (click)="saveTeam()" class="btn add-hero">
+            Agregar Equipo
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

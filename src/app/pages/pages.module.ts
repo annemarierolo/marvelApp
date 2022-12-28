@@ -4,7 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { HeroComponent } from './hero/hero.component';
 import { SearchComponent } from './search/search.component';
 import { ComponentsModule } from '../components/components.module';
-import { RatingModule } from 'ng-starrating';
+import { TeamComponent } from './team/team.component';
+import { FormsModule } from '@angular/forms'
 
 
 
@@ -13,11 +14,12 @@ import { RatingModule } from 'ng-starrating';
     HomeComponent,
     HeroComponent,
     SearchComponent,
+    TeamComponent
   ],
   imports: [
     CommonModule,
     ComponentsModule,
-    RatingModule
+    FormsModule
   ]
 })
 export class PagesModule { }

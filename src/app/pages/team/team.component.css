@@ -1,0 +1,40 @@
+.table-header{
+    background-color: #0C0D0D;
+    color: white;
+}
+
+.add-button{
+    position:fixed;
+    width:200px;
+    height:60px;
+    bottom:20px;
+    right:10px;
+}
+
+.add-hero{
+    background-color: #0C0D0D;
+	font-weight: 700;
+	color: white;
+}
+
+.add-hero:hover {
+	background-color: red;
+}
+
+.hero-team{
+    width: 60px;
+    height: 60px;
+    margin-top: 20px;
+    border: 2px solid white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.warning-msg{
+    margin-top: 10px;
+    color: red;
+}
+
+.search-button{
+    font-weight: 700;
+}
