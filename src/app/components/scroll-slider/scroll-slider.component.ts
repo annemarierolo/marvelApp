@@ -14,9 +14,7 @@ export class ScrollSliderComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    // console.log(this.cast);
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.swiper = new Swiper('.swiper', {

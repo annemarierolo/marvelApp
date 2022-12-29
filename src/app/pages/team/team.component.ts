@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { TeamsService } from 'src/app/services/teams.service';
 import { HeroesService } from '../../services/heroes.service';
 import { ITeam } from 'src/app/interfaces/ITeam';

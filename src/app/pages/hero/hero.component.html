@@ -8,23 +8,12 @@
             <div class="col">                
                 <h5>Comics</h5>
                 <app-scroll-slider [items]="comics"></app-scroll-slider>
-                <!-- <ul>
-                    <li *ngFor="let comic of comics">
-                        {{ comic.title}}
-                        <img class="img-thumbnail" src="{{ comic.thumbnail.path + '.' + comic.thumbnail.extension }}"  [alt]="comic.name">
-                    </li>
-                </ul> -->
             </div>
         </div>
         <div class="row mt-3">
             <div class="col">
                 <h5>Series</h5>
                 <app-scroll-slider [items]="series"></app-scroll-slider>
-                <!-- <ul>
-                    <li *ngFor="let serie of series">
-                        {{ serie.title}}
-                    </li>
-                </ul> -->
             </div>
         </div>
       

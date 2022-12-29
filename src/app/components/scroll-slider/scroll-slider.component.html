@@ -1,14 +1,10 @@
 <div class="swiper">
-    <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
-        <!-- Slides -->
         <div class="swiper-slide text-black mb-12" *ngFor="let item of items">
             <img class="img-thumbnail" src="{{ item.thumbnail.path + '.' + item.thumbnail.extension }}" [alt]="item.title"> 
-            <!-- <p> -->
                 <span class="title-text">
                     {{ item.title }}
                 </span>
-            <!-- </p> -->
         </div>
     </div>
 </div>
